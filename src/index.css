@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Fonts */
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  
+  /* Colors */
+  --peach-primary: #FF8855;
+  --peach-dark: #E66D3C;
+  --neutral-light: #FAFAFA;
+  --neutral-dark: #262626;
+}
+
+body {
+  font-family: var(--font-body);
+  background: linear-gradient(135deg, #FFF5F0 0%, #FAFAFA 100%);
+  min-height: 100vh;
+  color: var(--neutral-dark);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
