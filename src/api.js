@@ -2,6 +2,8 @@ import axios from 'axios';
 
 const API_URL = 'http://localhost:8085';
 
+const API_URL = 'https://budget-tracker-api-n9y6.onrender.com';
+
 // Create axios instance with default headers
 const api = axios.create({
   baseURL: API_URL,
