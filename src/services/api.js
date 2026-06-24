@@ -9,4 +9,21 @@ export const api = axios.create({
   withCredentials: true
 });
 
+// API functions
+export const getCategories = () => {
+  return api.get('/categories');
+};
+
+export const getBudget = () => {
+  return api.get('/budgets/current');
+};
+
+export const getExpenses = (page = 0, size = 20) => {
+  return api.get('/expenses', { params: { page, size } });
+};
+
+export const createExpense = (expenseData) => {
+  return api.post('/expenses', expenseData);
+};
+
 export default api;
