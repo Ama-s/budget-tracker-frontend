@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getCategories } from './api';
+import { getCategories } from './services/api';
 import BudgetOverview from './components/BudgetOverview';
 import ExpenseList from './components/ExpenseList';
 import AddExpenseModal from './components/AddExpenseModal';
