@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import axios from 'axios';
+import api from '../services/api';
 
 function AddExpenseModal({ isOpen, onClose, categories, onExpenseAdded }) {
   const [formData, setFormData] = useState({
@@ -24,11 +24,7 @@ function AddExpenseModal({ isOpen, onClose, categories, onExpenseAdded }) {
         categoryId: parseInt(formData.categoryId)
       };
 
-      await axios.post('http://localhost:8085/expenses', expenseData, {
-        headers: { 
-          'Content-Type': 'application/json'
-        }
-      });
+      await api.post('/expenses', expenseData);
 
       // Reset form
       setFormData({

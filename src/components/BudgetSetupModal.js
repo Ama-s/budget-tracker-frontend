@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import axios from 'axios';
+import api from '../services/api';
 
 function BudgetSetupModal({ isOpen, onClose, onBudgetCreated }) {
   const [formData, setFormData] = useState({
@@ -39,11 +39,7 @@ function BudgetSetupModal({ isOpen, onClose, onBudgetCreated }) {
         savingsAllocation: parseFloat(formData.savingsAllocation) || 0
       };
 
-      await axios.post('http://localhost:8085/budgets', budgetData, {
-        headers: { 
-          'Content-Type': 'application/json'
-        }
-      });
+      await api.post('/budgets', budgetData);
 
       // Reset form
       setFormData({

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../services/api';
 
 function ExpenseList() {
   const [expenses, setExpenses] = useState([]);
@@ -11,7 +11,7 @@ function ExpenseList() {
 
   const fetchExpenses = async () => {
     try {
-      const response = await axios.get('http://localhost:8085/expenses', {
+      const response = await api.get('/expenses', {
         params: { page: 0, size: 20 }
       });
       setExpenses(response.data.content || []);

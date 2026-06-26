@@ -9,6 +9,19 @@ export const api = axios.create({
   withCredentials: true
 });
 
+// Global 401 handler — if session expired mid-use, force back to login
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 401) {
+      // Reload the app — AuthContext's checkSession on mount will detect
+      // the dead session and correctly show the Login page again
+      window.location.href = '/';
+    }
+    return Promise.reject(error);
+  }
+);
+
 // API functions
 export const getCategories = () => {
   return api.get('/categories');

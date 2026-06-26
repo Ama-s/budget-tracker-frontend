@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../services/api';
 
 function BudgetOverview() {
   const [budgetData, setBudgetData] = useState(null);
@@ -8,7 +8,7 @@ function BudgetOverview() {
   useEffect(() => {
     const fetchBudget = async () => {
       try {
-        const response = await axios.get('http://localhost:8085/budgets/remaining');
+        const response = await api.get('/budgets/remaining');
         setBudgetData(response.data);
         setLoading(false);
       } catch (err) {
